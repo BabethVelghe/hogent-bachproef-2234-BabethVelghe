@@ -1,0 +1,69 @@
+%==============================================================================
+% Sjabloon onderzoeksvoorstel bachproef
+%==============================================================================
+% Gebaseerd op document class `hogent-article'
+% zie <https://github.com/HoGentTIN/latex-hogent-article>
+
+% Voor een voorstel in het Engels: voeg de documentclass-optie [english] toe.
+% Let op: kan enkel na toestemming van de bachelorproefcoördinator!
+\documentclass{hogent-article}
+
+% Invoegen bibliografiebestand
+\addbibresource{voorstel.bib}
+
+% Informatie over de opleiding, het vak en soort opdracht
+\studyprogramme{Professionele bachelor toegepaste informatica}
+\course{Bachelorproef}
+\assignmenttype{Onderzoeksvoorstel}
+% Voor een voorstel in het Engels, haal de volgende 3 regels uit commentaar
+% \studyprogramme{Bachelor of applied information technology}
+% \course{Bachelor thesis}
+% \assignmenttype{Research proposal}
+
+\academicyear{2023-2024} % TODO: pas het academiejaar aan
+
+% TODO: Werktitel
+\title{Efficiëntie en robuustheid van de Swift OpenAPI Generator: Een onderzoek naar de snelheid en duurzaamheid van prototypering tot productieklare back-end}
+
+% TODO: Studentnaam en emailadres invullen
+\author{Babeth Velghe}
+\email{babeth.velghe@student.hogent.be}
+
+% TODO: Geef de co-promotor op
+\supervisor[Co-promotor]{ T. Condon (Vapor, \href{mailto:tim@vapor.codes}{tim@vapor.codes})}
+
+% Binnen welke specialisatierichting uit 3TI situeert dit onderzoek zich?
+% Kies uit deze lijst:
+%
+% - Mobile \& Enterprise development
+% - AI \& Data Engineering
+% - Functional \& Business Analysis
+% - System \& Network Administrator
+% - Mainframe Expert
+% - Als het onderzoek niet past binnen een van deze domeinen specifieer je deze
+%   zelf
+%
+\specialisation{Mobile \& Enterprise development}
+\keywords{Swift, OpenAPI generator, Vapor}
+
+\begin{document}
+
+\begin{abstract}
+  Gezien het actuele belang van snelle en professionele softwareontwikkeling, is er een nood aan tools die het ontwikkelingsproces nog kunnen versnellen en vereenvoudigen. In deze paper wordt er een onderzoek gedaan naar de Swift OpenAPI generator. Er wordt een antwoord gezocht op de vraag: “In hoeverre is de Swift OpenAPI Generator in staat om snel een werkend prototype te genereren dat zowel geschikt is voor demonstratie-\\doeleinden als kan evolueren tot een productieklare back-end zonder dat een herimplementatie nodig is”. 
+  
+  Het zal een succesvolle bachelorproef zijn, als we op een eenvoudige manier een back-end kunnen genereren die we als productieklare back-end kunnen beschouwen, zonder dat er veel aanpassingen nodig zijn.
+  Het plan van aanpak bestaat uit verschillende fases. In de eerste fase wordt er een diepgaand onderzoek verricht naar relevante literatuur en worden bestaande OpenAPI generators onderzocht. Daarna worden doelstellingen \\bepaald voor het verder verloop van het onderzoek. Hierna zullen er verschillende scenario’s gecreëerd worden met steeds moeilijkere API’s en zal er een Swift UI gemaakt worden om deze later te testen. Vervolgens zullen alle mogelijke scenario’s worden uitgewerkt en getest. In een laatste fase zullen de ervaringen en uitkomsten geanalyseerd worden om inzicht te krijgen in de prestaties van de Swift OpenAPI Generator en zal een conclusie uitgeschreven worden.
+  Het is de verwachting dat de Swift OpenAPI generator goed zal functioneren bij \\eenvoudige API's, echter mogelijks minder effectief zal zijn bij complexere API's. Als we deze verwachting kunnen weerleggen, zou het een zeer nuttig instrument kunnen zijn voor het ontwikkelen van een back-end.
+  
+  
+\end{abstract}
+
+\tableofcontents
+
+% De hoofdtekst van het voorstel zit in een apart bestand, zodat het makkelijk
+% kan opgenomen worden in de bijlagen van de bachelorproef zelf.
+\input{voorstel-inhoud}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}

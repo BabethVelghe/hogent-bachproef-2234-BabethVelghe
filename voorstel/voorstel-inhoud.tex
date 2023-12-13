@@ -2,39 +2,25 @@
 
 \section{Introductie}%
 \label{sec:introductie}
+In het snel evoluerende domein van software-\\ontwikkeling wordt de behoefte aan flexibele en efficiënte tools om het ontwikkelingsproces te versnellen en te vereenvoudigen steeds \\belangrijker. Bij de introductie van de Swift \\OpenAPI Generator in juni, dacht men dat deze tool hiervoor een veelbelovende oplossing zou kunnen zijn. Dit onderzoek richt zich op de \\mogelijkheden van de Swift OpenAPI Generator, met specifieke focus op het vermogen om een werkend prototype te genereren en ook op hoe gemakkelijk het kan evolueren naar een \\productieklare back-end zonder een volledige herimplementatie. 
 
-Waarover zal je bachelorproef gaan? Introduceer het thema en zorg dat volgende zaken zeker duidelijk aanwezig zijn:
+De doelstelling van dit onderzoek bestaat uit twee delen. Enderzijds richt het zich op het \\beoordelen van de capaciteiten van de Swift \\OpenAPI Generator. Anderzijds bestudeert het de haalbaarheid en efficiëntie van het evolueren van een prototype naar een productieklare back-end. 
 
-\begin{itemize}
-  \item kaderen thema
-  \item de doelgroep
-  \item de probleemstelling en (centrale) onderzoeksvraag
-  \item de onderzoeksdoelstelling
-\end{itemize}
-
-Denk er aan: een typische bachelorproef is \textit{toegepast onderzoek}, wat betekent dat je start vanuit een concrete probleemsituatie in bedrijfscontext, een \textbf{casus}. Het is belangrijk om je onderwerp goed af te bakenen: je gaat voor die \textit{ene specifieke probleemsituatie} op zoek naar een goede oplossing, op basis van de huidige kennis in het vakgebied.
-
-De doelgroep moet ook concreet en duidelijk zijn, dus geen algemene of vaag gedefinieerde groepen zoals \emph{bedrijven}, \emph{developers}, \emph{Vlamingen}, enz. Je richt je in elk geval op it-professionals, een bachelorproef is geen populariserende tekst. Eén specifiek bedrijf (die te maken hebben met een concrete probleemsituatie) is dus beter dan \emph{bedrijven} in het algemeen.
-
-Formuleer duidelijk de onderzoeksvraag! De begeleiders lezen nog steeds te veel voorstellen waarin we geen onderzoeksvraag terugvinden.
-
-Schrijf ook iets over de doelstelling. Wat zie je als het concrete eindresultaat van je onderzoek, naast de uitgeschreven scriptie? Is het een proof-of-concept, een rapport met aanbevelingen, \ldots Met welk eindresultaat kan je je bachelorproef als een succes beschouwen?
+Het concrete eindresultaat van dit onderzoek bestaat niet alleen uit een uitgeschreven \\scriptie, maar ook uit een tastbaar bewijs van de Swift OpenAPI Generator in actie. Het zal als een \\succesvolle bachelorproef beschouwd worden \\wanneer op een gemakkelijke manier een back-end kan gegenereerd worden die we als een \\productieklare back-end kunnen zien zonder dat er veel aanpassingen nog nodig zijn. Een \\rapport met aanbevelingen voor verdere \\optimalisatie en implementatie zou het sluitstuk kunnen vormen, waarbij het geheel als succesvol wordt beschouwd wanneer de Swift OpenAPI \\Generator daadwerkelijk bijdraagt aan het \\versnellen en vereenvoudigen van het \\ontwikkelingsproces.  
 
 %---------- Stand van zaken ---------------------------------------------------
 
-\section{State-of-the-art}%
-\label{sec:state-of-the-art}
+\section{Literatuurstudie}%
+\label{sec:literatuurstudie}
+De Swift OpenAPI Generator is een swift \\plugin, die code kan genereren die nodig is om API-oproepen te doen of API servers te \\implementeren. Het genereert de code aan de hand van de openAPI documenten. Dit zorgt ervoor dat Swift-ontwikkelaars snel en efficiënt clientcode kunnen genereren voor het gebruik van RESTfull API’s. Om de swift OpenAPI \\Generator te gebruiken moet je twee plugins toevoegen, de swift-openapi-generator en de swift-openapi-runtime. De eerste plugin genereert code tijdens build-time en de tweede plugin bevat \\protocol definities die worden gebruikt door de gegenereerde code en extensiebibliotheken.\\Hierna moet je nog 2 bestanden toevoegen aan uw project namelijk de openapi.yaml, beschrijft uw API, de openapi-generator-config.yaml is een configuratiebestand voor de plug-in die bepaalt of client- of servercode moet worden \\gegenereerd. Met zijn intuïtieve interface, \\uitgebreide functies en sterke community-\\ondersteuning is het een essentiële troef voor elke Swift-ontwikkelaar die met API's werkt \\ \autocite{Dvorsky2023} . 
 
-Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein, d.w.z.\ een inleidende, doorlopende tekst over het onderzoeksdomein van je bachelorproef. Je steunt daarbij heel sterk op de professionele \emph{vakliteratuur}, en niet zozeer op populariserende teksten voor een breed publiek. Wat is de huidige stand van zaken in dit domein, en wat zijn nog eventuele open vragen (die misschien de aanleiding waren tot je onderzoeksvraag!)?
+De openAPI document is een open standaard voor het definiëren van HTTP APIs, meestal \\gedocumenteerd in YAML of JSON. OpenAPI-\\documenten zijn een essentieel hulpmiddel om consistentie en kwaliteit te waarborgen tijdens de ontwikkeling, doordat ze verschillende \\doeleinden dienen. De openAPI-documenten \\worden opgesteld volgens de OpenAPI-\\specificaties (OAS) en deze specificaties zorgen voor duidelijke, leesbare beschrijving van HTTP API’s voor zowel mensen als machines die het mogelijk maken een service te begrijpen zonder dat er veel kennis nodig is om met de service te communiceren \autocite{Miller2020}. 
 
-Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek?
+Hoewel OpenAPI en Swagger verwant zijn, zijn ze niet identiek. OpenAPI vertegenwoordigt de evolutie van de Swagger 2.0-specificatie, die een nieuwe naam kreeg na de overname door SmartBear Software en de donatie aan het OpenAPI \\Initiative \autocite{2023}. OpenAPI is de specificatie die wordt gebruikt om RESTfull API's te definiëren. Swagger omvat een reeks tools die worden gebruikt om OpenAPI \\specification te implementeren. Swagger bevat ook een breed scala aan API-ontwerp-, \\documentatie-, test-, beheer- en monitoring-\\oplossingen die het voor ontwikkelaars \\gemakkelijker maken om de openAPI \\specificaties te implementeren \autocite{ Pinkham2017}. 
 
-Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Hykes2013}! Denk zeker goed na welke werken je refereert en waarom.
+Een van de best practices om een API te \\ontwikkelen is om een API te creëren volgens de design principes van REST. Representational State Transfer is ontworpen om als richtlijn te \\dienen voor het beheren van communicatie \\binnen complexe netwerken zoals het internet. API’s die gebruik maken van REST worden REST API’s of RESTfull API’s genoemd. De principes van REST-architectuurstijl omvatten een uniforme \\interface, statelessness, een gelaagd systeem, \\cachebaarheid en code on demand. Door deze principes biedt Rest API verschillende voordelen, namelijk schaalbaarheid, flexibiliteit en \\onafhankelijkheid van specifieke technologieën. Dit betekent dat zowel client- als server-\\applicaties in verschillende programmeertalen \\kunnen worden geschreven zonder dat dit invloed heeft op het API-ontwerp \autocite{2020}. 
 
-Draag zorg voor correcte literatuurverwijzingen! Een bronvermelding hoort thuis \emph{binnen} de zin waar je je op die bron baseert, dus niet er buiten! Maak meteen een verwijzing als je gebruik maakt van een bron. Doe dit dus \emph{niet} aan het einde van een lange paragraaf. Baseer nooit teveel aansluitende tekst op eenzelfde bron.
-
-Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle nodige info aanwezig is om de bron terug te vinden (zoals uitvoerig besproken in de lessen Research Methods).
-
+Het creëren van back-end in Swift wordt \\voornamelijk gedaan via Vapor. Het is een open-source web framework die geschreven is in Swift en is een krachtig framework voor het schrijven van web- en API-services \autocite{Nelson}. Vapor profiteert ook van het concurrency-model van Swift, deze maakt deelbare, veranderlijke status- en datarace-veiligheid mogelijk, waardoor een betrouwbaar en efficiënt framework kan worden aangeboden. Bovendien heeft Swift de laagste geheugen-\\voetafdruk van native gecompileerde binaire \\bestanden in Linux, waardoor Vapor een lichtgewicht en efficiënte keuze is. Het heeft een kleine leercurve voor native app-ontwikkelaars, waardoor het een go-to-oplossing is voor de \\ontwikkeling van API-services \autocite{Pant2023}.
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
 %   geen onderdeel is van de zin.
@@ -42,31 +28,32 @@ Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle no
 %   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
 %   ...'')
 
-Je mag deze sectie nog verder onderverdelen in subsecties als dit de structuur van de tekst kan verduidelijken.
+
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}%
 \label{sec:methodologie}
 
-Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te beantwoorden? Gebruik je hiervoor literatuurstudie, interviews met belanghebbenden (bv.~voor requirements-analyse), experimenten, simulaties, vergelijkende studie, risico-analyse, PoC, \ldots?
+Voor het onderzoek naar de mogelijkheden van de Swift OpenAPI Generator is er een plan van aanpak. Dit plan van aanpak is opgedeeld in \\verschillende fases. 
 
-Valt je onderwerp onder één van de typische soorten bachelorproeven die besproken zijn in de lessen Research Methods (bv.\ vergelijkende studie of risico-analyse)? Zorg er dan ook voor dat we duidelijk de verschillende stappen terug vinden die we verwachten in dit soort onderzoek!
+In de eerste fase is het doel om een diepgaande kennis te verwerven over het onderwerp. Deze fase wordt opgedeeld in 3 deelfases. Als \\eerste richt men zich op de OpenAPI specificaties, omdat de Swift OpenAPI Generator sterk \\afhankelijk is van deze specificaties. Dit wordt gedaan om inzicht te krijgen over hoe OpenAPI wordt gebruikt in andere contexten om zicht te krijgen op de generieke bruikbaarheid van de OpenAPI specificaties. Naast het begrijpen van de OpenAPI specificaties, is het belangrijk dat er gekeken wordt naar de best practices en trends van de API-ontwikkeling en hoe back-ends \\doorgaans ontwikkeld en geoptimaliseerd \\worden. Hierna is van groot belang dat er \\gefocust wordt op het gebruik van Swift in Backend-ontwikkeling. 
 
-Vermijd onderzoekstechnieken die geen objectieve, meetbare resultaten kunnen opleveren. Enquêtes, bijvoorbeeld, zijn voor een bachelorproef informatica meestal \textbf{niet geschikt}. De antwoorden zijn eerder meningen dan feiten en in de praktijk blijkt het ook bijzonder moeilijk om voldoende respondenten te vinden. Studenten die een enquête willen voeren, hebben meestal ook geen goede definitie van de populatie, waardoor ook niet kan aangetoond worden dat eventuele resultaten representatief zijn.
+Na deze eerste fase zullen er duidelijke doelstellingen worden bepaald voor het verder \\verloop van het onderzoek. Aan de hand van de \\literatuurstudie zullen deze doelstellingen \\worden vastgelegd om een duidelijk beeld te \\krijgen van wat de Swift OpenAPI Generator \\allemaal moet kunnen, namelijk is de Swift OpenAPI generator instaat om authentificatie of validatie toe te passen en API calls te beperken tot een \\specifieke rol. 
 
-Uit dit onderdeel moet duidelijk naar voor komen dat je bachelorproef ook technisch voldoen\-de diepgang zal bevatten. Het zou niet kloppen als een bachelorproef informatica ook door bv.\ een student marketing zou kunnen uitgevoerd worden.
+In de derde fase zullen er twee deelfases \\uitgewerkt worden. In de eerste deelfase zullen er \\mogelijk scenario's worden gecreëerd om de Swift OpenAPI-generator te testen. Er zullen vijf \\verschillende scenario's worden uitgewerkt, waarbij elke keer een iets complexere API nodig zal zijn. Hierbij zullen de OpenAPI-specificaties en de literatuurstudie worden gebruikt om de \\mogelijke scenario's uit te werken. Nadat deze scenario’s zijn uitgeschreven kan er werk gemaakt worden van de tweede deelfase. In de volgende fase zal een Swift UI uitgewerkt worden waarbij je gemakkelijk kan zien hoe deze API’s werken. Deze Swift UI zal gebruikt worden om na te gaan of het mogelijk is om een snelwerkend prototype te creëren. 
 
-Je beschrijft ook al welke tools (hardware, software, diensten, \ldots) je denkt hiervoor te gebruiken of te ontwikkelen.
+In de volgende fase zullen alle mogelijke \\scenario’s worden uitgewerkt met de Swift OpenAPI Generator. Ook zullen ze getest worden met de Swift UI die gecreëerd is in de voorgaande fase. Deze fase wordt gedaan om te weten te komen hoe gemakkelijk het is om een werkend \\prototype te genereren. 
 
-Probeer ook een tijdschatting te maken. Hoe lang zal je met elke fase van je onderzoek bezig zijn en wat zijn de concrete \emph{deliverables} in elke fase?
+Na deze fase zullen de verzamelde gegevens geanalyseerd worden om inzicht te krijgen in de prestaties van de Swift OpenAPI Generator. Ook zullen de gegevens met elkaar worden \\vergeleken en zal het meest effectieve scenario \\worden geïdentificeerd aan de hand van de vooraf bepaalde doelstellingen. Ook zullen de \\eventuele beperkingen van de Swift OpenAPI \\Generator worden geïdentificeerd.
+
+Als laatste zal er een conclusie worden \\getrokken uit het onderzoek en een antwoord worden geformuleerd op de onderzoeksvraag op basis van de verkregen resultaten. Ook zal er een aanbeveling worden geschreven voor het gebruik van de Swift OpenAPI generator. 
+
+\begin{center}
+    \includegraphics[scale=0.6]{methodologie.png}
+\end{center}
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwacht resultaat, conclusie}%
 \label{sec:verwachte_resultaten}
 
-Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de onderdelen van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet welk soort data je moet verzamelen en hoe je die moet meten.
-
-Wat heeft de doelgroep van je onderzoek aan het resultaat? Op welke manier zorgt jouw bachelorproef voor een meerwaarde?
-
-Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
-
+Aan de hand van mijn literatuurstudie kan er afgeleid worden dat de Swift OpenAPI generator goed zal werken bij gemakkelijkere API’s, maar minder goed bij complexere API’s. Bij voorgaande tools die code genereren is het vaak zo dat er nog veel zaken moeten aangepast worden, maar \\wanneer je dit opnieuw laat genereren ben je je aanpassingen weer kwijt en moet je weer \\opnieuw beginnen. Zelf hoop ik dat ik deze \\verwachtingen kan weerleggen, zou het een zeer nuttig instrument kunnen zijn voor het ontwikkelen van een back-end. Dit zou ervoor zorgen dat de developers meer tijd kunnen besteden aan de apps interface. 
