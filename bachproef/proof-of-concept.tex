@@ -1,0 +1,110 @@
+
+\chapter{\IfLanguageName{dutch}{Proof of Concept}{Proof of Concept}}%
+
+\label{ch:proof-of-concept}
+
+\section{Opbouw scenario's}
+
+Om de Swift OpenAPI generator grondig te testen, concentreren we ons op een specifiek onderwerp: een boekenverlanglijst. Dit overkoepelende idee is onderverdeeld in kleinere scenario’s om het beter te kunnen uitwerken en de mogelijkheden van de Swift OpenAPI generator te gaan testen. 
+
+\begin{itemize}
+  \item	Scenario 1: Gedeelde lijst van boeken met databaseconnectie
+  \item	Scenario 2: backend logica toevoegen voor logging, metrics en validatie. 
+  \item Scenario 3: Toevoegen van authenticatie
+  \item Scenario 4: Client van de Server aanmaken
+\end{itemize}
+
+\section{Scenario 1: Gedeelde lijst van boeken met databaseconnectie}
+Gebruikers hebben toegang tot een gedeelde lijst van boeken, waar ze informatie over elk boek kunnen bekijken en boeken kunnen gaan toevoegen en aanpassen. Deze lijst is toegankelijk voor alle gebruikers en maakt verbinding met een database om de boeken op te slaan en op te halen. 
+
+\subsection{Technische doelstellingen}
+De technische doelstellingen omvatten verschillende belangrijke aspecten. Allereerst Moet er een OpenAPI-document gecreërd worden dat alle vereiste requestmethoden omvat, zoals POST, CREATE, UPDATE, GET en GET / ID.  Dit document bevat een gedetailleerde opsomming van hoe verzoeken geformuleerd en verwerkt moeten worden. Het is opgesteld volgens de OpenAPI-specificaties. Daarnaast is het essentieel om een stabiele en efficiënte databaseverbinding tot stand te brengen, zodat de nodig boekgegevens kunnen opslaan en ophalen. 
+
+Eenmaal verbonden met de database, moet de handler uitgewerkt worden. Deze handler is verantwoordelijk is voor het verwerken van alle inkomende verzoeken. Hierbij wordt de nodige logica toegevoegd om aan elke type verzoek correct te kunnen voldoen. Dit omvat het verwerken van verzoeken voor het toevoegen, bijwerken en opvragen van boekgegevens, evenals het ophalen van specifieke boeken op basis van hun unieke ID.
+
+
+\subsubsection{Aanmaken van OpenAPI document}
+
+Een correcte syntax is essentieel bij het opstellen van een OpenAPI-document, aangezien zelfs een kleine fout de interpretatie van de generator kan beïnvloeden. Om dergelijke fouten te voorkomen, Zijn de OpenAPI-document gemaakt in VScode met behulp van de extensie 'vscode-openapi-viewer'. 
+
+In een OpenAPI-document begint men met het specificeren van de versie, gevolgd door eventuele aanvullende informatie in de 'info'-sectie. Vervolgens worden de servers gedefinieerd om aan te geven op welke URL de API zal draaien. Pas daarna worden de paden en endpoints van de API gespecificeerd.
+
+Helemaal onderaan, na de specificatie van de paden en endpoints, volgt de sectie voor het definiëren van de components. Deze components zijn herbruikbare elementen binnen het OpenAPI-document. Dit kunnen schema's voor gegevensstructuren, parameters, en antwoorden op verzoeken zijn. Door componenten te gebruiken, kunnen we duplicatie verminderen en consistentie waarborgen in het hele document.
+
+\subsubsection{Verbinding met database}
+
+Bij de eerste poging om verbinding te maken met de database, werd er het voorbeeld gebruikt dat beschikbaar was op de Git-repository van de Swift OpenAPI generator. Maar al snel werd duidelijk dat dit voorbeeld veel te low-level was. Het maakt de code complex en ingewikkeld, waardoor het lasig was om een efficiënte database verbinding tot stand te brengen die kon herbruikt worden.  
+Er werd over gegaan naar meer vertrouwde methoden. Er werd geprobeerd om de connectie op te zetten zoals gebruikelijk is bij het ontwikkelen van backend-systemen. 
+
+Zo is de database toegevoegd aan de de main Server van de applicatie. Zodat deze onmiddellijk wordt opgezet als de applicatie runt. Om de database operationeel te maken en de benodigde tabellen toe te voegen, is er gebruik gemaakt van migrations. Door migrations te gebruiken, kan er gemakkelijk wijzigingen in de databasestructuur doorgevoerd worden en deze synchroniseren met de applicatiecode. Dit garandeert een consistente en betrouwbare databaseconfiguratie.
+
+Daarnaast zijn er  models gemaakt voor de gegevens die in de database worden opgeslagen. Dit is gedaan omdat de standaard datatypen van een OpenAPI-document niet rechtstreeks aan de database kunnen worden toegevoegd. Dit betekent dat wanneer er een verzoek wordt gedaan aan de applicatie, de gegevens die worden ontvangen eerst moet worden aangepast naar het juiste gegevenstype.
+
+In traditionele backend systemen is het mogelijk om de database op te halen aan de hand van het request dat je ontvangt, maar tegen initiële verwachtingen in werkte dit niet met de Swift OpenAPI generator. Dit komt doordat de Swift OpenAPI generator zelf een APIProtocol aanmaakt, wat een extra laag van complexiteit toevoegt. Concreet betekent dit dat de gebruikelijke methoden om de database op te halen niet functioneerden zoals anders. Om dit op te lossen, wordt er simpelweg de database door gegeven van de server aan de handler. Dit was een effectieve oplossing die ervoor zorgde dat de database toegankelijk was zonder te interfereren met de werking van de Swift OpenAPI generator.
+
+\subsubsection{Toevoegen van de handler}
+Nadat de verbinding met de database tot stand is gebracht, is het noodzakelijk om de verzoeken vanuit het OpenAPI-document nog te verwerken. Deze verwerking wordt doorgaans uitgevoerd in de handler van de applicatie. De handler fungeert als een tussenliggende laag tussen de ontvangen verzoeken en de daadwerkelijke verwerking ervan.
+
+Binnen de handler worden de ontvangen verzoeken geanalyseerd, gevalideerd en doorgegeven aan de database. Dit omvat vaak het interpreteren van de gegevens in het verzoek, het oproepen van de bijbehorende methoden of services om de gevraagde acties uit te voeren, en het afhandelen van eventuele fouten of uitzonderingen die zich tijdens dit proces kunnen voordoen. Het ontwikkelen van een efficiënte handler is van groot belang want zonder deze handler zal de backend niet kunnen functioneren.
+
+
+\section{Scenario 2: back-end logica toevegen voor logging, metrics en validatie}
+
+Het tweede scenario is minder direct gerelateerd aan de applicatie zelf, maar richt zich meer op de logica die in de backend plaatsvindt. De belangrijkheid van deze backend logica kan niet worden onderschat, aangezien het essentieel is voor verschillende kritische functies. Dit omvat het bijhouden van fouten en gebeurtenissen, het meten van de prestaties van de applicatie en het valideren van de invoer om de integriteit en betrouwbaarheid van de gegevens die door de applicatie worden verwerkt te waarborgen.
+
+\subsection{Technische doelstellingen}
+
+Logging, metrics en validatie zijn onmisbare technische aspecten in de backend van een applicatie. Ze vervullen elk een cruciale rol bij het waarborgen van de betrouwbaarheid, prestaties en integriteit van de applicatie.
+
+Logging legt de belangrijke gebeurtenissen en fouten vast die zich voordoen tijdens de uitvoering van de applicatie. Dit omvat het registreren van informatie zoals gebruikersacties, systeemgebeurtenissen, foutmeldingen en meer. Door logging toe te voegen kunnen ontwikkelaars gemakkelijker een probleem opsporen en debuggen, wat cruciaal is voor het onderhouden van een gezonde applicatie. 
+
+Aan de andere kant omvatten Metrics meetbare informatie over de prestaties en het gedrag van de applicatie. Dit kan variëren van de verwerkingstijd van verzoeken en geheugengebruik tot CPU-gebruik en het aantal gebruikers. Metrics worden vaak samengevoegd en in kaart gebracht met monitoringssystemen zoals DataDog, Grafana en Prometheus. Het gebruik van Metrics geeft inzicht in de prestatie van de applicatie, helpt bij het identificeren van zwakke punten en maatschappelijke problemen, en stelt ontwikkelaars in staat proactief actie te ondernemen om de diensten te verbeteren. 
+
+Tot slot, Valdiatie richt zich op het controleren van de geldigheid en integriteit van de gegevens die door de applicatie worden verwerkt. Dit omvat het valideren van invoer van gebruikers om ervoor te zorgen dat deze voldoet aan verwachte criteria, zoals datums, geldige e-mailadressen, numerieke waarden en meer. Door validatie te voorzien kunnen ontwikkelaars potentiële fouten en inconsistentie voorkomen, Hierdoor zal de betrouwbaarheid en bruikbaarheid van de applicatie verbeteren.
+
+\subsubsection{Implementeren van logging met SwiftLog}
+De Swift OpenAPI-generator biedt al enkele standaardlogs, maar als er meer logging nodig zijn, is het mogelijk om Swiftlog te integreren. In dit project heeft men dit volledig uitgewerkt volgens de gebruikelijke methode om logging toe te voegen aan een backend-applicatie. Het proces verliep soepel en de logging functioneert zoals verwacht, waardoor het mogelijk is om een gedetailleerder inzicht te verkrijgen in de werking van de applicatie.
+Bovendien bestaat er de mogelijkheid om Logging toe te voegen via een middleware, wat een handige optie is om te verkennen. Deze middleware is beschikbaar op de Swift OpenAPI-generator GitHub-pagina, waardoor het gemakkelijk is om deze functionaliteit toe te voegen aan een project. Met deze aanvullende opties kan de logging-functionaliteit van de Swift-applicatie verder worden aangepast en geoptimaliseerd naar specifieke behoeften.
+
+
+\subsubsection{Implementeren van Metrics}
+Met behulp van de middleware die beschikbaar is op de Swift OpenAPI-generator GitHub-pagina, was het zeer eenvoudig om Metrics toe te voegen aan de applicatie.  Door metrics toe te voegen via een middleware biedt dit een grote flexibiliteit en aanpasbaarheid. De metrics kunnen op maat worden gemaakt naar uw specifieke behoeften en vereisten, waardoor een uitgebreide set aan meetgegevens kan worden verzameld die relevant is voor uw applicatie.
+
+\subsubsection{Implementeren van validatie}
+in de backend maakt men gebruik van models. Aanvankelijk dacht men deze models te kunnen gebruiken om de gegevens te valideren. Echter al snel werd duidelijk dat dit niet ging lukken. Want deze validaties werken volgens een request die bij de swift openapi generator niet gebruikt wordt. 
+
+Een andere poging was om de validatie uit te voeren op basis van het format of de string zoals gespecificeerd in het OpenAPI-document. Het OpenAPI-document beschrijft de verwachte structuur en eigenschappen van de invoerparameters. Deze benadering leek veelbelovend omdat het een gestandaardiseerde manier bood om de geldigheid van het verzoek te waarborgen. Tegen initiële verwachtingen in, werkt deze methode niet met de Swift OpenAPI-generator, wat het integratieproces bemoeilijkte en uiteindelijk niet haalbaar maakte.
+
+Ten slotte is er  gekozen voor een meer pragmatische aanpak door handmatige validatie uit te voeren in de handler voordat de gegevens werden opgeslagen in de database. Dit betekende dat de specifieke validatielogica rechtstreeks in de code van de handler is implementeerd om ervoor te zorgen dat het verzoek voldeed aan de vereiste criteria voordat het wordt verwerkt. Hoewel dit een meer arbeidsintensieve oplossing was, bleek het effectief te zijn en te voldoen aan onze validatiebehoeften. Door de validatiestappen direct in de verwerkingslogica op te nemen, kan er nauwkeurige en betrouwbare gegevensverwerking gegarandeerd worden voordat deze werd opgeslagen in de database.
+
+
+\section{Scenario 3: Toevoegen van authenticatie}
+
+\subsection{Technische doelstellingen}
+
+\section{Scenario 4: client aanmaken}
+In dit scenario wordt er gericht op het maken van een clientapplicatie die communiceert met de server die is gebouwd met behulp van de Swift OpenAPI-generator. De clientapplicatie zal de gegenereerde endpoints gebruiken om boekgegevens op te halen, toe te voegen en bij te werken. Dit stelt gebruikers in staat om interactie te hebben met de boekenlijst vanuit een aparte clientinterface.
+
+
+\subsection{Technische doelstellingen}
+Dit scenario kent verschillende technische doelstellingen, die van essentieel belang zijn en stapsgewijs worden aangepakt. Ten eerste is er een noodzaak om een Xcode App-project op te zetten. Dit is een cruciale eerste stap waarbij er ook de openapi-documenten en de dependencies aan het project worden toegevoegd. 
+
+Het volgende cruciale aspect van dit scenario is het toevoegen van een netwerklaag aan de applicatie. In deze laag worden alle endpoints beschreven die zijn gespecificeerd in het openapi-document. Dit zorgt voor een gestructureerde en efficiënte communicatie met de server, wat onmisbaar is voor het functioneren van de applicatie.
+
+Als laatste worden de gebruikersinterfaces ontwikkeld, die essentieel zijn voor het weergeven van de functionaliteiten van de applicatie aan de gebruiker. Dit is een belangrijke stap, omdat het de interactie tussen de gebruiker en de applicatie mogelijk maakt.
+
+\subsubsection{Opzetten van Xcode project en toevegen van de OpenAPI documenten}
+Bij het toevoegen van de openapi-documenten is het belangrijk dat het openapi.yaml file identiek is, met het openapi.yaml file in uw server. In het openapi-generator-config.yaml file pas je server aan naar client. 
+
+\subsubsection{Toevoegen van dependencies}
+Het is van belang om de dependencies toe te voegen aan het project. Hierbij gaat het specifiek om de swift-openapi-generator, de swift-openapi-runtime en de swift-openapi-urlsession. Deze zijn onmisbaar voor het goed functioneren van de applicatie.
+
+Bij het toevoegen van de dependency ‘swift-openapi-generator’ is het belangrijk om op te merken dat je op het “package product screen” de optie “add to target” moet instellen op “None”. Als je dit niet doet, kan dit voor aanzienlijke problemen zorgen bij het uitvoeren van de applicatie, wat een soepele ontwikkeling in de weg staat. Op de target moet je bij de build phases de “OpenAPIGenerator” toevoegen. 
+
+
+\subsubsection{Netwerklaag}
+Nu wordt er de netwerklaag toevoeg aan het project. In deze netwerklaag wordt voor elk endpoint een specifieke functie gecreëerd. Deze functies fungeren als de brug tussen de applicatie en de externe servers, waardoor communicatie mogelijk wordt via de API-endpoints. Het bijzondere aan deze functies is dat er niet veel logica aan toegevoegd hoeft te worden, aangezien veel van het proces automatisch wordt afgehandeld door de Client. 
+Hoewel de meeste van de logica automatisch wordt afgehandeld, er nog steeds aandacht moet worden besteed aan bepaalde aspecten, zoals error handling. 
+
+\subsubsection{Het creëren van de views}
+Wanneer je netwerk laag gemaakt is, is zeer gemakkelijk om deze functies te gaan verwerken in je views. 
