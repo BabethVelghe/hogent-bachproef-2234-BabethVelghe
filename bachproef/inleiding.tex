@@ -5,35 +5,35 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
 \label{ch:inleiding}
 
-In het snel evoluerende domein van softwareontwikkeling wordt de behoefte aan flexibele en efficiënte tools om het ontwikkelingsproces te versnellen en te vereenvoudigen steeds belangrijker. Bij de introductie van de Swift OpenAPI Generator dacht men dat deze tool hiervoor een veelbelovende oplossing zou kunnen zijn. Dit onderzoek richt zich op de mogelijkheden van de Swift OpenAPI Generator, met specifieke focus op het vermogen om een werkend prototype te genereren en ook op hoe gemakkelijk het kan evolueren naar een productieklare back-end zonder een volledige herimplementatie.
+In het snel evoluerende domein van softwareontwikkeling wordt de behoefte aan flexibele en efficiënte tools om het ontwikkelingsproces te versnellen en te vereenvoudigen steeds belangrijker. Bij de introductie van de  \textit{Swift OpenAPI Generator} dacht men dat deze tool hiervoor een veelbelovende oplossing zou kunnen zijn. Dit onderzoek richt zich op de mogelijkheden van de  \textit{Swift OpenAPI Generator}, met specifieke focus op het vermogen om een werkend prototype te genereren. Ook richt dit onderzoek zich op hoe gemakkelijk het kan evolueren naar een productieklare back-end zonder een volledige herimplementatie.
 \newpage
 
 
 \section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
 \label{sec:probleemstelling}
 
-Swift, een programmeertaal ontwikkeld door Apple, streeft naar een hoge mate van toegankelijkheid, met name voor beginnende programmeurs. De taal is ontworpen voor eenvoud en gebruiksgemak, waardoor het een populaire keuze is voor het ontwikkelen van mobiele apps en andere softwaretoepassingen binnen het Apple ecosysteem.
+\textit{Swift}, een programmeertaal ontwikkeld door Apple, streeft naar een hoge mate van toegankelijkheid, met name voor beginnende programmeurs. De taal is ontworpen voor eenvoud en gebruiksgemak, waardoor het een populaire keuze is voor het ontwikkelen van mobiele  \textit{apps} en andere softwaretoepassingen binnen het Apple ecosysteem.
 
-Aan de kant van de gebruikersinterface (UI) heeft Swift zich bewezen als een uiterst intuïtieve en gebruiksvriendelijke taal. Dankzij de heldere syntax en krachtige functies kunnen ontwikkelaars snel en efficiënt aantrekkelijke en responsieve interfaces bouwen voor iOS-, macOS- en andere Apple-platforms. 
+Aan de kant van de gebruikersinterface (UI) heeft \textit{Swift} zich bewezen als een uiterst intuïtieve en gebruiksvriendelijke taal. Dankzij de heldere syntax en krachtige functies kunnen ontwikkelaars snel en efficiënt aantrekkelijke en responsieve interfaces bouwen voor iOS-, macOS- en andere Apple-platforms. 
 
-Echter, als het gaat om het gebruik van Swift voor server-side ontwikkeling, kan de ervaring soms minder toegankelijk zijn. Het heeft een minder uitgebreid ecosysteem van bibliotheken en frameworks, beperkte documentatie en educatieve bronnen, en een gebrek aan gemeenschapsbetrokkenheid in vergelijking met andere populaire programmeertalen. Dit betekent dat het moeilijker is voor beginners om diepgaande serverapplicaties te bouwen.
+Echter, als het gaat om het gebruik van \textit{Swift} voor \textit{server-side} ontwikkeling, kan de ervaring soms minder toegankelijk zijn. Het heeft een minder uitgebreid ecosysteem van bibliotheken en \textit{frameworks}, beperkte documentatie en educatieve bronnen. Ook is er gebrek aan gemeenschapsbetrokkenheid in vergelijking met andere populaire programmeertalen. Dit betekent dat het moeilijker is voor beginners om diepgaande serverapplicaties te bouwen.
 
-Tijdens WWDC23 introduceerde Apple de Swift OpenAPI Generator, die een veelbelovende oplossing zou kunnen zijn om de drempel naar server-side ontwikkeling te verlagen.
+Tijdens WWDC23 introduceerde Apple de \textit{Swift OpenAPI Generator}, die een veelbelovende oplossing zou kunnen zijn om de drempel naar \textit{server-side} ontwikkeling te verlagen.
 
 
 \section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}%
 \label{sec:onderzoeksvraag}
 
-“In hoeverre is de Swift OpenAPI Generator in staat om snel een werkend prototype te genereren dat zowel geschikt is voor demonstratie- doeleinden als kan evolueren tot een productieklare back-end zonder dat een herimplementatie nodig is”
+“In hoeverre is de \textit{Swift OpenAPI Generator} in staat om snel een werkend prototype te genereren dat zowel geschikt is voor demonstratie- doeleinden als kan evolueren tot een productieklare back-end zonder dat een herimplementatie nodig is”
 
 \section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
 \label{sec:onderzoeksdoelstelling}
 
-De onderzoeksvraag die men in deze bachelorproef probeert te beantwoorden, draait om de Swift OpenAPI Generator en haar vermogen om op een efficiënte en effectieve manier te functioneren binnen het softwareontwikkelingsproces. Het is de bedoeling te achterhalen in welke mate deze tool in staat is een werkend prototype te produceren. 
+De onderzoeksvraag die men in deze bachelorproef probeert te beantwoorden, draait om de \textit{Swift OpenAPI Generator} en haar vermogen om op een efficiënte en effectieve manier te functioneren binnen het softwareontwikkelingsproces. Het is de bedoeling te achterhalen in welke mate deze tool in staat is een werkend prototype te produceren. 
 
-Het onderzoek is erop gericht om te bepalen of dit initiële prototype kan worden getransformeerd naar een volledig operationele backend zonder dat daarvoor een volledige herimplementatie nodig is. In andere woorden, Er wordt op zoek gegaan of de Swift OpenAPI Generator in staat is om prototypes te integreren in het bredere proces van softwareontwikkeling, waarbij het gemakkelijk is om over te gaan van concept naar productie.
+Het onderzoek is erop gericht om te bepalen of dit initiële prototype kan worden getransformeerd naar een volledig operationele backend zonder dat daarvoor een volledige herimplementatie nodig is. In andere woorden, Er wordt op zoek gegaan of de \textit{Swift OpenAPI Generator} in staat is om prototypes te integreren in het bredere proces van softwareontwikkeling, waarbij het gemakkelijk is om over te gaan van concept naar productie.
 
-Door deze vragen te verkennen, wordt er niet alleen de technische mogelijkheden  van de Swift OpenAPI Generator bekeken, maar ook haar potentieel om de ontwikkeling van software te versnellen en de complexiteit te verminderen. Het is de bedoeling te bepalen of deze tool kan bijdragen aan een meer gestroomlijnde ontwikkelingsworkflow, waarbij het hergebruik van code en snelle iteraties centraal staan. Dit onderzoek kan uiteindelijk waardevolle inzichten opleveren voor softwareontwikkelaars die op zoek zijn naar efficiënte manieren om prototypes te creëren en deze te laten evolueren naar productieklare systemen.
+Door deze vragen te verkennen, wordt er niet alleen de technische mogelijkheden  van de  \textit{Swift OpenAPI Generator} bekeken, maar ook haar potentieel om de ontwikkeling van software te versnellen en de complexiteit te verminderen. Het is de bedoeling te bepalen of deze tool kan bijdragen aan een meer gestroomlijnde ontwikkelingsworkflow, waarbij het hergebruik van code en snelle iteraties centraal staan. Dit onderzoek kan uiteindelijk waardevolle inzichten opleveren voor softwareontwikkelaars die op zoek zijn naar efficiënte manieren om prototypes te creëren en deze te laten evolueren naar productieklare systemen.
 
 
 \section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}%
@@ -49,8 +49,6 @@ In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand v
 
 In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
 
-In Hoofdstuk~\ref{ch:proof-of-concept} wordt toegelicht welke oplossingen gerealiseerd en getest werden in dit onderdzoek. 
-
-% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
+In Hoofdstuk~\ref{ch:proof-of-concept} wordt toegelicht welke oplossingen gerealiseerd en getest werden in dit onderzoek. 
 
 In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.

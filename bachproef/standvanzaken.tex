@@ -7,41 +7,106 @@
 
 % Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
 
-In deze bachelorproef wordt er onderzocht of de Swift OpenAPI Generator in staat om snel een werkend prototype te genereren dat zowel geschikt is voor demonstratie- doeleinden als kan evolueren tot een productieklare back-end zonder dat een herimplementatie nodig is. Dit wil zeggen dat er wordt onderzocht of een API die \\gegenereerd is met de Swift OpenAPI generator even sterk kan zijn als een zelf \\geschreven API.
+In deze bachelorproef wordt er onderzocht of de \textit{Swift OpenAPI Generator} in staat is om snel een werkend prototype te genereren dat zowel geschikt is voor demonstratie- doeleinden en kan evolueren tot een productieklare back-end zonder dat een herimplementatie nodig is. Dit wil zeggen dat er wordt onderzocht of een API die \\gegenereerd is met de \textit{Swift OpenAPI Generator} even sterk kan zijn als een zelf \\geschreven API.
 
 \section{Wat is een Back-end?}
 
-Een back-end focust zicht op alles dat je niet kunt zien op de website en wordt ook wel de server-side software genoemd. Een back-end zorgt ervoor dat de website goed presteert, met de nadruk op databases, back-endlogica, application \\ programming interface (API's), architectuur en servers. Het zorgt voor de \\communicatie tussen de database en de applicatie. 
-Een API (Application \\Programming Interface) definieert hoe applicaties of apparaten met elkaar \\kunnen verbinden of met elkaar kunnen communiceren \autocite{IBM}. Het laat \\sontwikkelaars toe om de functionaliteiten van andere software componenten, \\diensten of platforms te gebruiken, zonder dat ze de interne werking ervan moeten begrijpen.
+Een back-end focust zicht op alles dat je niet kunt zien op de website en wordt ook wel de server-side software genoemd. Een back-end zorgt ervoor dat de website goed presteert, met de nadruk op databases, back-endlogica, application \\ \textit{programming interface (API's)}, architectuur en servers. Het zorgt voor de \\communicatie tussen de database en de applicatie. 
+Een API \textit{(Application \\Programming Interface)} definieert hoe applicaties of apparaten met elkaar \\kunnen verbinden of met elkaar kunnen communiceren \autocite{IBM}. Het laat \\ontwikkelaars toe om de functionaliteiten van andere software componenten, \\diensten of \textit{platforms} te gebruiken, zonder dat ze de interne werking ervan moeten begrijpen. \\
+ 
+API’s vergemakkelijken niet alleen het ontwerp en de ontwikkeling van nieuwe \\applicatie en diensten alsook het integreren en beheren van bestaande, maar \\bieden ook andere cruciale voordelen aan de ontwikkelaars en organisaties in het \\algemeen. API’s kunnen de samenwerking op de werkplek verbeteren en \\ \textit{workflows} van bedrijven automatiseren. Dit kan doordat API’s integraties mogelijk maken en ervoor zorgen dat \textit{platforms} en apps naadloos met elkaar kunnen \\communiceren. API’s scheiden de verzoekende applicatie van de infrastructuur van de reagerende service en kunnen beveiligingslagen bieden tussen de twee terwijl ze communiceren. Ook kunnen API’s een extra veiligheid bieden voor een eindgebruiker \autocite{IBMa}.  \\
 
-API’s vergemakkelijken niet alleen het ontwerp en de ontwikkeling van nieuwe \\applicatie en diensten alsook het integreren en beheren van bestaande, maar \\bieden ook andere cruciale voordelen aan de ontwikkelaars en organisaties in het \\algemeen. API’s kunnen de samenwerking op de werkplek verbeteren en \\workflows van bedrijven automatiseren. Dit kan doordat API’s integraties mogelijk maken en ervoor zorgen dat platforms en apps naadloos met elkaar kunnen \\communiceren. API’s scheiden de verzoekende applicatie van de infrastructuur van de reagerende service en kunnen beveiligingslagen bieden tussen de twee terwijl ze communiceren. Ook kunnen API’s een extra veiligheid bieden voor een eindgebruiker \autocite{IBMa}.
-
-Door het vele gebruik van API’s, is er een ontwikkeling ontstaan van protocollen. Deze protocollen zorgen voor een gestandaardiseerde informatie uitwisseling. Een van deze protocollen is het REST-protocol. REST, Representational State Transfer, is ontworpen om als richtlijn te dienen voor het beheren van communicatie binnen complexe netwerken zoals het internet. API’s die gebruik maken van REST worden REST API’s of RESTfull API’s genoemd. De principes van REST-architectuurstijl omvatten een uniforme interface, statelessness, een gelaagd systeem en cachebaarheid. Het uniforme interface principe geeft aan dat een server \\informatie aanlevert in een standaardformaat. Dit wil zeggen wanneer een API \\request van dezelfde resource, van waar het ook komt, deze er exact hetzelfde moet uitzien. Statelessness staat voor requests die al hun eigen informatie moeten \\bevatten die zij nodig hebben. Een gelaagd systeem betekent dat een Rest API zodanig moet ontworpen zijn dat noch de client, noch de server kan zien of deze communiceert met de eindapplicatie of met  tussenpersonen. Cachebaarheid wil zeggen dat er een mogelijkheid is om bepaalde server reacties op de client of een tussenpersoon op te slaan om de responstijd van de server te verbeteren. Door deze principes biedt Rest API verschillende voordelen, namelijk schaalbaarheid, flexibiliteit en onafhankelijkheid van specifieke technologieën. Dit \\betekent dat zowel client- als server- applicaties in verschillende programmeer-\\talen kunnen worden geschreven zonder dat dit invloed heeft op het API-ontwerp \autocite{IBM}. 
+Door het vele gebruik van API’s, is er een ontwikkeling ontstaan van protocollen. Deze protocollen zorgen voor een gestandaardiseerde informatie uitwisseling. Een van deze protocollen is het REST-protocol. REST,\textit{Representational State Transfer}, is ontworpen om als richtlijn te dienen voor het beheren van communicatie binnen complexe netwerken zoals het internet. API’s die gebruik maken van REST worden REST API’s of RESTfull API’s genoemd. De principes van REST-architectuurstijl omvatten een uniforme interface, \textit{statelessness}, een gelaagd systeem en cachebaarheid. Het uniforme interface principe geeft aan dat een server informatie aanlevert in een standaardformaat. Dit wil zeggen wanneer een API \textit{request} van dezelfde \\resource, van waar het ook komt, deze er exact hetzelfde moet uitzien. \textit{Statelessness} staat voor \textit{requests} die al hun eigen informatie moeten bevatten die zij nodig hebben. Een gelaagd systeem betekent dat een Rest API zodanig moet \\ontworpen zijn dat noch de \textit{client}, noch de server kan zien of deze communiceert met de eindapplicatie of met  tussenpersonen. Cachebaarheid wil zeggen dat er een mogelijkheid is om bepaalde server reacties op de \textit{client} of een tussenpersoon op te slaan om de responstijd van de server te verbeteren. Door deze principes biedt Rest API verschillende voordelen, namelijk schaalbaarheid, flexibiliteit en onafhankelijkheid van specifieke technologieën. Dit betekent dat zowel \textit{client}- als server- applicaties in verschillende programmeertalen kunnen worden geschreven zonder dat dit invloed heeft op het API-ontwerp \autocite{IBM}.  \\
 
 \section{Wat is Swift?}
 
-Swift is een effectieve en gebruiksvriendelijke programmeertaal voor alle Apple-platforms. Dankzij beknopte, expressieve syntaxis en moderne functies, is het \\eenvoudig om Swift te leren. De code is veilig ontworpen en resulteert in razendsnelle software. 
-Swift is ontstaan uit het nieuwste onderzoek naar programmeer-\\talen, gecombineerd met decennia aan ervaring in het bouwen van Apple-platforms. De duidelijke syntaxis maakt het gebruik van benoemde parameters in Swift \\gemakkelijk leesbaar en onderhoudbaar \autocite{Swift}. 
+\textit{Swift} is een effectieve en gebruiksvriendelijke programmeertaal voor alle Apple-\textit{platforms}. Dankzij beknopte, expressieve syntaxis en moderne functies, is het \\eenvoudig om \textit{Swift} te leren. De code is veilig ontworpen en resulteert in razendsnelle software. 
+\textit{Swift} is ontstaan uit het nieuwste onderzoek naar programmeer-\\talen, gecombineerd met decennia aan ervaring in het bouwen van Apple-platforms. De duidelijke syntaxis maakt het gebruik van benoemde parameters in \textit{Swift} \\gemakkelijk leesbaar en onderhoudbaar \autocite{Swift}.  \\
 
-Swift is een programmeertaal die door Apple is gecreëerd voor de ontwikkeling van applicaties voor iOS en andere Apple-apparaten. Sinds de lancering in 2014 is het snel populair geworden vanwege de toegankelijkheid, uitdrukking en veiligheid. Ondanks kritiek op zijn instabiliteit en comptatibiliteitsproblemen, is Swift breed geadopteerd door technologiegiganten zoals Google, IBM en LinkedIn.
-Apple's \\initiatief "Everyone Can Code" is in grote mate gebouwd op Swift. Het doel van dit \\initiatief is om computerwetenschap te bevorderen. Ze hebben hiervoor tools zoals Swift Playgrounds ontwikkeld, die programmeren toegankelijker maken. Swift Playgrounds is een iPad-app die een native Swift-programmeeromgeving op iOS biedt waar beginners kunnen experimenteren met verschillende programmeerstructuren buiten een Xcode-toepassingsproject.
-Echter, het initiatief van Apple heeft kritiek gekregen vanwege de veronderstelling dat iedereen toegang heeft tot de nodige middelen. De geldigheid van de bewering dat "iedereen" kan \\programmeren, als ze toegang hebben tot een Apple-apparaat, een goede \\internetverbinding, opvoeders en de tijd om dit te doen, is in twijfel getrokken.
-Ondanks de uitdagingen en kritiek die Swift heeft ondervonden, kan er niet worden ontkend dat de taal in korte tijd veel heeft bereikt. Swift is een goed voorbeeld van hoe de productcycli van Apple werken. Ze zijn meestal niet de eerste op de markt, maar na de lancering en na een paar versies krijgen ze snel brede adoptie. Het \\"Everyone Can Code"-initiatief, dat grotendeels is gebouwd op de rug van Swift, is een nobele oorzaak die door het bedrijf wordt gepromoot en zal hopelijk de \\volgende generatie in staat stellen om experts te worden in de informatica en de mensheid te helpen de grootste uitdagingen aan te gaan die we momenteel \\tegenkomen \autocite{Weninger2020}
+\textit{Swift} is een programmeertaal die door Apple is gecreëerd voor de ontwikkeling van applicaties voor iOS en andere Apple-apparaten. Sinds de lancering in 2014 is het snel populair geworden vanwege de toegankelijkheid, uitdrukking en veiligheid. Ondanks kritiek op zijn instabiliteit en comptatibiliteitsproblemen, is \textit{Swift} breed geadopteerd door technologiegiganten zoals Google, IBM en \textit{LinkedIn}. \\ \\
+Apple's \\initiatief "\textit{Everyone Can Code}" is in grote mate gebouwd op \textit{Swift}. Het doel van dit \\initiatief is om computerwetenschap te bevorderen. Ze hebben hiervoor tools zoals Swift Playgrounds ontwikkeld, die programmeren toegankelijker maken. \textit{Swift playgrounds} is een iPad-app die een native \textit{Swift}-programmeeromgeving op iOS biedt waar beginners kunnen experimenteren met verschillende programmeerstructuren buiten een Xcode-toepassingsproject.
+Echter, het initiatief van Apple heeft kritiek gekregen vanwege de veronderstelling dat iedereen toegang heeft tot de nodige middelen. De geldigheid van de bewering dat iedereen kan \\programmeren, als ze toegang hebben tot een Apple-apparaat, een goede \\internetverbinding, opvoeders en de tijd om dit te doen, is in twijfel getrokken.  \\
+Ondanks de uitdagingen en kritiek die \textit{Swift} heeft ondervonden, kan er niet  \\worden ontkend dat de taal in korte tijd veel heeft bereikt. \textit{Swift} is een goed voorbeeld van hoe de productcycli van Apple werken. Ze zijn meestal niet de eerste op de markt, maar na de lancering en na een paar versies krijgen ze snel brede  \\adoptie. Het "\textit{Everyone Can Code}"-initiatief, dat grotendeels is gebouwd op de rug van \textit{Swift}, is een nobele oorzaak die door het bedrijf wordt gepromoot en zal  \\hopelijk de volgende generatie in staat stellen om experts te worden in de \\informatica en de mensheid te helpen de grootste uitdagingen aan te gaan die we momenteel tegenkomen \autocite{Weninger2020}  \\
 
-Swift on Server is een concept waarbij de Swift-programmeertaal wordt gebruikt voor server-side ontwikkeling. Webframeworks zoals Vapor en Hummingbird \\maken dit mogelijk door tools en bibliotheken te bieden die het ontwikkelingsproces vereenvoudigen. Ze pakken belangrijke zaken aan zoals routing, database-integratie en verzoekafhandeling, waardoor ontwikkelaars zich kunnen focussen op de bedrijfslogica van hun apps.
-Swift is een moderne, veilige en efficiënte keuze voor server-side code. Het combineert de eenvoud en leesbaarheid van een high-level taal met de prestatie- en veiligheidseigenschappen van een gecompileerde taal. Dit stelt ontwikkelaars in staat hun bestaande Swift-vaardigheden te \\gebruiken om volledige end-to-end oplossingen te creëren met slechts één \\programmeertaal. Swift heeft unieke kenmerken die het bijzonder geschikt \\maken voor server-side toepassingen, zoals snelle prestaties, korte opstarttijd, \\expressiviteit, veiligheid en een sterk ondersteund ecosysteem \autocite{2022}.
+\textit{Swift on Server} is een concept waarbij de \textit{Swift}-programmeertaal wordt gebruikt voor \textit{server-side} ontwikkeling. \textit{webframeworks} zoals \textit{Vapor} en \textit{Hummingbird} \\maken dit mogelijk door tools en bibliotheken te bieden die het ontwikkelingsproces vereenvoudigen. Ze pakken belangrijke zaken aan zoals routing, database-integratie en verzoekafhandeling, waardoor ontwikkelaars zich kunnen focussen op de bedrijfslogica van hun apps.
+\textit{Swift} is een moderne, veilige en efficiënte keuze voor \textit{server-side} code. Het combineert de eenvoud en leesbaarheid van een high-level taal met de prestatie- en veiligheidseigenschappen van een gecompileerde taal. Dit stelt ontwikkelaars in staat hun bestaande \textit{Swift}-vaardigheden te \\gebruiken om volledige \textit{end-to-end} oplossingen te creëren met slechts één \\programmeertaal. \textit{Swift} heeft unieke kenmerken die het bijzonder geschikt \\maken voor \textit{server-side} toepassingen, zoals snelle prestaties, korte opstarttijd, \\expressiviteit, veiligheid en een sterk ondersteund ecosysteem \autocite{2022}.  \\
 
 
-Vapor is een server-side framework voor Swift dat kenmerkend is door zijn \\moderniteit, snelheid en schaalbaarheid. Het is gebaseerd op SwiftNIO, een \\moderne en snelle event-driven networking library. Dit maakt het een krachtige tool voor het ontwikkelen van zowel kleine hobbyprojecten als grote enterprise-applicaties. Een van de belangrijkste voordelen van Vapor is zijn expressiviteit. Het maakt gebruik van Fluent, een krachtige ORM die interactie met databases \\vereenvoudigt, wat ervoor zorgt dat het beheren van complexe datamodellen \\eenvoudig wordt. Vapor heeft ook een actieve en behulpzame community. Dit \\betekent dat je hulp kunt krijgen wanneer je vragen of problemen hebt, wat het een goede keuze maakt voor zowel beginners als ervaren ontwikkelaars. Er zijn ook enkele belangrijke kenmerken die Vapor onderscheiden van andere frameworks. Het biedt een eenvoudige en flexibele routeringssysteem, ondersteuning voor middleware, een krachtige templating engine genaamd Leaf en eenvoudige testing met XCTest. Al deze kenmerken maken Vapor een krachtige en veelzijdige tool voor webontwikkeling \autocite{Pant2023}.
-Hieronder is een voorbeeld van een back-end in Vapor. Om een back-end op te zetten in Vapor, zijn drie elementen vereist: een model dat het datatype beschrijft dat opgeslagen moet worden, een migration die eeb tabel in de database aanmaakt voor het model, en ten slotte een controller waarin de routes voor de API worden gedefinieerd. 
-\begin{lstlisting}[caption=Vapor example]
-    import Vapor
-    
-    struct Book: Content {
+\textit{Vapor} is een \textit{server-side framework} voor \textit{Swift} dat kenmerkend is door zijn \\moderniteit, snelheid en schaalbaarheid. Het is gebaseerd op \textit{SwiftNIO}, een \\moderne en snelle \textit{event-driven networking library}. Dit maakt het een krachtige tool voor het ontwikkelen van zowel kleine hobbyprojecten als grote enterprise-applicaties. Een van de belangrijkste voordelen van \textit{Vapor} is zijn expressiviteit. Het maakt gebruik van \textit{Fluent}, een krachtige ORM die interactie met databases \\vereenvoudigt, wat ervoor zorgt dat het beheren van complexe datamodellen \\eenvoudig wordt. \textit{Vapor} heeft ook een actieve en behulpzame community. Dit \\betekent dat je hulp kunt krijgen wanneer je vragen of problemen hebt, wat het een goede keuze maakt voor zowel beginners als ervaren ontwikkelaars. Er zijn ook enkele belangrijke kenmerken die \textit{Vapor} onderscheiden van andere \textit{frameworks}. Het biedt een eenvoudige en flexibele routeringssysteem, ondersteuning voor \textit{middleware}, een krachtige \textit{templating engine} genaamd \textit{Leaf} en eenvoudige \textit{testing} met XCTest. Al deze kenmerken maken \textit{Vapor} een krachtige en veelzijdige tool voor webontwikkeling \autocite{Pant2023}.  \\
+Hieronder is een voorbeeld van een back-end in \textit{Vapor}. Om een back-end op te zetten in Vapor, zijn drie elementen vereist: een model dat het datatype beschrijft dat opgeslagen moet worden, een \textit{migration} die een tabel in de database aanmaakt voor het model, en ten slotte een controller waarin de \textit{routes} voor de API worden gedefinieerd. 
+ \\  \\
+Een model wordt aangemaakt om de data- en domeinlogica te structuren. Models dienen als een abstractielaag boven de database, wat betekent dat ze bepalen hoe de data wordt opgeslagen, opgehaald en verwerkt. In dit voorbeeld wordt er een model gemaakt voor een boek. Dit boek heeft in dit geval een id, titel en een auteur. 
+
+\begin{lstlisting}[caption=Vapor example - Model]
+     struct Book: Content {
         let id: Int
         let title: String
         let author: String
     }
+\end{lstlisting}
+ \\  \\
+ \textit{Migrations} worden gebruikt om database-schema's te beheren en bij te werken. Ze zorgen ervoor dat je het schema op een gecontroleerde manier kunt aanpassen en wijzigingen in een specifieke volgorde uitgevoerd worden. 
+
+\begin{lstlisting}[caption=Vapor example - Migrations]
+struct Migrations: AsyncMigration {
+    func prepare(on database: Database) async throws {
+        try await database.schema("books")
+        .id()
+        .field("title", .string, .required)
+        .field("author", .string, .required)
+        .create()
+    }
+    
+    func revert(on database: Database) async throws {
+        try await database.schema("books").delete()
+    }
+}
+\end{lstlisting}
+\\  \\
+De \textit{controller} is verantwoordelijk voor het verwerken van HTTP-verzoeken en het teruggeven van de juiste antwoord aan de \textit{client}. In dit voorbeeld kunnen alle boeken worden opgehaald, kan een boek worden toegevoegd of geüpdatet en kan er één boek worden opgehaald. 
+
+\begin{lstlisting}[caption=Vapor example - Controller]
+ struct Routes: RouteCollection {
+    func boot(routes: RoutesBuilder) throws {
+        let booksRoute = routes.grouped("books")
+        
+        booksRoute.get(use: getAllHandler)
+        booksRoute.post(use: createHandler)
+        booksRoute.get(":bookID", use: getHandler)
+        booksRoute.put(":bookID", use: updateHandler)
+        booksRoute.delete(":bookID", use: deleteHandler)
+    }
+    
+    func getAllHandler(_ req: Request) async throws -> [Book] {
+        return try await Book.query(on: req.db).all()
+    }
+    
+    func createHandler(_ req: Request) async throws -> Book {
+        let book = try await req.content.decode(Book.self)
+        try await book.save(on: req.db)
+        return book
+    }
+    
+    func getHandler(_ req: Request) async throws -> Book {
+        guard let book = try await Book.find(req.parameters.get("bookID"), 
+        on: req.db) else {
+            throw Abort(.notFound)
+        }
+        return book
+    }
+    
+    func updateHandler(_ req: Request) async throws -> Book {
+        guard let book = try await Book.find(req.parameters.get("bookID"), 
+        on: req.db) else {
+            throw Abort(.notFound)
+        }
+    }
+}
+\end{lstlisting}
+
+De onderstaande code initialiseert een applicatie, stelt belangrijke configuraties in, voert databasemigraties en routes in, en start vervolgens de applicatie. 
+
+\begin{lstlisting}[caption=Vapor example]
     
     let app = Application()
     defer { app.shutdown() }
@@ -52,80 +117,26 @@ Hieronder is een voorbeeld van een back-end in Vapor. Om een back-end op te zett
     ])
     
     try app.run()
-    
-    struct Migrations: AsyncMigration {
-        func prepare(on database: Database) async throws {
-            try await database.schema("books")
-            .id()
-            .field("title", .string, .required)
-            .field("author", .string, .required)
-            .create()
-        }
-        
-        func revert(on database: Database) async throws {
-            try await database.schema("books").delete()
-        }
-    }
-    
-    struct Routes: RouteCollection {
-        func boot(routes: RoutesBuilder) throws {
-            let booksRoute = routes.grouped("books")
-            
-            booksRoute.get(use: getAllHandler)
-            booksRoute.post(use: createHandler)
-            booksRoute.get(":bookID", use: getHandler)
-            booksRoute.put(":bookID", use: updateHandler)
-            booksRoute.delete(":bookID", use: deleteHandler)
-        }
-        
-        func getAllHandler(_ req: Request) async throws -> [Book] {
-            return try await Book.query(on: req.db).all()
-        }
-        
-        func createHandler(_ req: Request) async throws -> Book {
-            let book = try await req.content.decode(Book.self)
-            try await book.save(on: req.db)
-            return book
-        }
-        
-        func getHandler(_ req: Request) async throws -> Book {
-            guard let book = try await Book.find(req.parameters.get("bookID"), 
-                on: req.db) else {
-                throw Abort(.notFound)
-            }
-            return book
-        }
-        
-        func updateHandler(_ req: Request) async throws -> Book {
-            guard let book = try await Book.find(req.parameters.get("bookID"), 
-                on: req.db) else {
-                throw Abort(.notFound)
-            }
-        }
-    }
+
 \end{lstlisting}
-\newpage
+ \\  \\
 
 
-Hummingbird is een lichtgewicht, flexibel modern webapplicatieframework dat werkt op een op SwiftNIO gebaseerde serverimplementatie. Het is ontworpen om een minimaal aantal afhankelijkheden te vereisen. Dit framework biedt een router voor het doorsturen van verschillende eindpunten naar hun handlers en \\middleware voor het verwerken van verzoeken voordat ze de handlers bereiken. Het verwerkt ook de geretourneerde antwoorden, aangepaste codering/decodering van verzoeken/antwoorden, TLS en HTTP2.
-Hummingbird is ontworpen om op zo min mogelijk afhankelijkheden te vertrouwen. Dit betekent echter dat veel \\functies niet beschikbaar zijn in de kernbibliotheken. Voor extra functies zijn uitbreidingen beschikbaar. De Hummingbird-repository bevat deze aanvullende \\modules  \autocite{2024}.
-Hieronder is een voorbeeld van een back-end in Humminbird. 
-\begin{lstlisting}[caption=Himmingbird example]
-    import Hummingbird
-    import HummingbirdJSON
-    
+\textit{Hummingbird} is een lichtgewicht, flexibel modern webapplicatie \textit{framework} dat werkt op een op \textit{SwiftNIO} gebaseerde serverimplementatie. Het is ontworpen om een minimaal aantal afhankelijkheden te vereisen. Dit \textit{framework} biedt een router voor het doorsturen van verschillende eindpunten naar hun \textit{handlers} en \\\textit{middleware }voor het verwerken van verzoeken voordat ze de \textit{handlers} bereiken. Het verwerkt ook de geretourneerde antwoorden, aangepaste codering/decodering van verzoeken/antwoorden, TLS en HTTP2.  \\  \\
+\textit{Hummingbird} is ontworpen om op zo min mogelijk afhankelijkheden te vertrouwen. Dit betekent echter dat veel functies niet beschikbaar zijn in de kernbibliotheken. Voor extra functies zijn uitbreidingen beschikbaar. De \textit{Hummingbird}-repository bevat deze aanvullende modules  \autocite{2024}.  \\  \\
+Hieronder is een voorbeeld van een back-end in \textit{Hummingbird}. \textit{Hummingbird} maakt net zoals \textit{Vapor} gebruik van Models. Een model wordt gemaakt om de data- en domeinlaag te structuren. 
+\begin{lstlisting}[caption=Himmingbird example - Model]
     struct Book: Codable {
         let id: Int
         let title: String
         let author: String
     }
-    
-    let app = HBApplication(configuration: .init(
-    address: .hostname("localhost"),
-    port: 8080,
-    serverName: "Hummingbird"
-    ))
-    
+\end{lstlisting}
+
+Vervolgens moeten de routes aangemaakt worden. Deze dienen voor het verwerken van HTTP-verzoeken en het teruggeven van de juiste antwoorden. Net zoals in het \textit{Vapor} voorbeeld kunnen alle boeken worden opgehaald en kan er een boek worden toegevoegd en kan er één boek worden opgehaald. 
+
+\begin{lstlisting}[caption=Himmingbird example - Routes]
+
     var books: [Book] = []
     
     app.router.get("books", use: { _ in
@@ -155,37 +166,48 @@ Hieronder is een voorbeeld van een back-end in Humminbird.
     })
 \end{lstlisting}
 
+Net zoals bij een \textit{Vapor} project moet de applicatie worden opgezet. Dit ziet er als volgt uit bij \textit{Hummingbird}. 
+
+\begin{lstlisting}[caption=Himmingbird example - Service]
+    
+    let app = HBApplication(configuration: .init(
+    address: .hostname("localhost"),
+    port: 8080,
+    serverName: "Hummingbird"
+    ))
+   
+\end{lstlisting}
+
 \newpage
 \section{Wat is een productieklare Back-end?}
 
-Een productieklare back-end is de back-end van een softwaretoepassing die klaar is voor implementatie en klaar is om gebruikt te worden in een productie-\\omgeving. De back-end omvat de server-side logica die nodig is voor het \\verwerken van verzoeken en het leveren van de benodigde gegevens en \\functionaliteiten aan de gebruikersinterface. Om gezien te worden als een \\productieklare back-end moet volgens \textcite{Senthilkumar2023} deze voldoen aan een volgende criteria, namelijk schaalbaarheid & prestatie-optimalisatie, database management, security en error handling & logging. 
-
-Bij het ontwerpen van de back-end van een applicatie is het belangrijk om te \\focussen op schaalbaarheid, prestatie-optimalisatie en robuuste beveiligingsmaatregelen. Cloudplatforms en load balancers kunnen worden gebruikt om een schaalbare infrastructuur te bouwen die gemakkelijk kan meegroeien met de toenemende vraag. Cachingmechanismen, zoals in-memory caching en Content Delivery \\Networks (CDN's), kunnen de databasebelasting verminderen en de responstijden verbeteren.
-
+Een productieklare back-end is de back-end van een softwaretoepassing die klaar is voor implementatie en klaar is om gebruikt te worden in een productie-\\omgeving. De back-end omvat de \textit{server-side} logica die nodig is voor het \\verwerken van verzoeken en het leveren van de benodigde gegevens en \\functionaliteiten aan de gebruikersinterface. Om gezien te worden als een \\productieklare back-end moet volgens \textcite{Senthilkumar2023} deze voldoen aan een volgende criteria, namelijk schaalbaarheid & prestatie-optimalisatie, database management, \textit{security} en \textit{error handling} & \textit{logging}. 
+ \\  \\
+Bij het ontwerpen van de back-end van een applicatie is het belangrijk om te \\focussen op schaalbaarheid, prestatie-optimalisatie en robuuste beveiligingsmaatregelen. \textit{Cloudplatforms} en \textit{load balancers} kunnen worden gebruikt om een schaalbare infrastructuur te bouwen die gemakkelijk kan meegroeien met de toenemende vraag. Cachingmechanismen, zoals in-memory caching en \textit{Content Delivery} \\\textit{Networks (CDN's)}, kunnen de databasebelasting verminderen en de responstijden verbeteren.
+ \\  \\
 Prestaties kunnen verder worden geoptimaliseerd door database-indexering, query-optimalisatie en asynchrone verwerking. Deze maatregelen kunnen de efficiëntie van gegevensopvraging en verwerking verbeteren, wat resulteert in snellere \\responstijden voor gebruikers. Het testen en implementeren van code kan worden geautomatiseerd met behulp van geautomatiseerde testpraktijken zoals JUnit en Pytest.
+ \\  \\
+Door API's te ontwerpen volgens de principes van RESTful en GraphQL kan een \\consistente en intuïtieve gebruikerservaring worden geboden. Zorg voor \\uitgebreide documentatie over \textit{endpoints}, inclusief informatie over aanvraag-/ \\antwoordformaten, authenticatiemethoden en foutafhandeling. Robuuste \\beveiligingsmaatregelen, zoals invoervalidatie, geparametriseerde zoekopdrachten, encryptietechnieken en JWT of OAuth voor authenticatie en autorisatie, kunnen worden geïmplementeerd voor beveiliging. De juiste databasetechnologie moet worden gekozen op basis van de specifieke vereisten van de applicatie. Voor \\optimale prestaties en een soepele werking, implementeer indexerings-, normalisatie- en cachingstrategieën.
+ \\  \\
+Foutafhandeling en \textit{logging} zijn integrale onderdelen van het systeem. Uitgebreide foutafhandeling kan betekenisvolle berichten aan klanten verstrekken en \textit{logging frameworks} zoals Log4j of Winston kunnen worden gebruikt voor foutopsporing en monitoring. \\ \\Versiebeheer kan worden gestroomlijnd met behulp van Git, en door effectieve vertakkingstrategieën toe te passen en regelmatig code reviews uit te voeren, kan de kwaliteit van de code worden gewaarborgd. Om de prestaties en gezondheid van de back-end te volgen, implementeer monitoringtools en waarschuwingen om proactief prestatieproblemen aan te pakken. Tot slot is het om de back-end-codebase grondig te documenteren en kennis binnen het bedrijf te delen via code-\textit{walkthroughs}, technische presentaties en interne wiki's \autocite{Senthilkumar2023}. 
+ \\  \\
+Voor Tim Condon, onderhouder van \textit{Vapor} en lid van de \textit{Swift Server Workgroup}, zijn er enkele kernaspecten die van cruciaal belang zijn in productieklare back-ends. Deze omvatten geautomatiseerde implementaties, die zorgen voor efficiëntie en consistentie. Ook is grondige en begrijpelijke documentatie essentieel voor zowel het huidige team als toekomstige leden om te begrijpen hoe systemen werken.  \\Incrementele uitrol om grote systeemwijzigingen te beheren en de risico's te minimaliseren. Als laatste is geautomatiseerde schaalvergroting belangrijk zodat men de groei van het systeem kan ondersteunen zonder handmatige interventie.
+ \\  \\
+In het bijzonder, wanneer we kijken naar een back-end die gebruik maakt van OpenAPI, is het cruciaal dat de API grondig wordt getest. Het gebruik van Unit Tests is een manier om ervoor te zorgen dat de API correct en zoals verwacht functioneert. Deze tests beoordelen individuele componenten van de API om ervoor te zorgen dat ze correct werken binnen de context van het geheel.
+Binnen de scope van deze bachelorproef wordt er specifiek gekeken naar de \textit{Swift OpenAPI \\Generator}. Het is van essentieel belang om te testen of de code die door deze \\generator wordt geproduceerd altijd correct is. Dit gaat verder dan alleen het functioneren van de code,  het gaat om het verifiëren dat de code doet wat het hoort te doen in de context van het bredere systeem en de verwachtingen van de gebruiker. Een methode om dit te doen is door middel van contracttests. Deze tests \\controleren of de API zich niet onverwacht wijzigt. Dit omvat het controleren of de paden nog steeds geldig zijn, of de antwoorden consistent zijn, of de verwachte \\\textit{request bodies} onveranderd blijven, enzovoort. Het doel van deze tests is om ervoor te zorgen dat de API zich gedraagt zoals afgesproken, wat helpt om de stabiliteit van het systeem als geheel te behouden. 
 
-Door API's te ontwerpen volgens de principes van RESTful en GraphQL kan een \\consistente en intuïtieve gebruikerservaring worden geboden. Zorg voor \\uitgebreide documentatie over endpoints, inclusief informatie over aanvraag-/ \\antwoordformaten, authenticatiemethoden en foutafhandeling. Robuuste \\beveiligingsmaatregelen, zoals invoervalidatie, geparametriseerde zoekopdrachten, encryptietechnieken en JWT of OAuth voor authenticatie en autorisatie, kunnen worden geïmplementeerd voor beveiliging. De juiste databasetechnologie moet worden gekozen op basis van de specifieke vereisten van de applicatie. Voor \\optimale prestaties en een soepele werking, implementeer indexerings-, normalisatie- en cachingstrategieën.
-
-Foutafhandeling en logging zijn integrale onderdelen van het systeem. Uitgebreide foutafhandeling kan betekenisvolle berichten aan klanten verstrekken en logging frameworks zoals Log4j of Winston kunnen worden gebruikt voor foutopsporing en monitoring. Versiebeheer kan worden gestroomlijnd met behulp van Git, en door effectieve vertakkingstrategieën toe te passen en regelmatig codereviews uit te voeren, kan de kwaliteit van de code worden gewaarborgd. Om de prestaties en gezondheid van de back-end te volgen, implementeer monitoringtools en waarschuwingen om proactief prestatieproblemen aan te pakken. Tot slot is het \\belangrijk om de back-end-codebase grondig te documenteren en kennis binnen het bedrijf te delen via code-walkthroughs, technische presentaties en interne wiki's \autocite{Senthilkumar2023}. 
-
-
-Voor Tim Condon, onderhouder van Vapor en lid van de \textit{Swift Server Workgroup}, zijn er enkele kernaspecten die van cruciaal belang zijn in \\productieklare back-ends. Deze omvatten geautomatiseerde implementaties, die zorgen voor efficiëntie en consistentie. Ook is grondige en begrijpelijke \\documentatie essentieel voor zowel het huidige team als toekomstige leden om te begrijpen hoe systemen werken.  Incrementele uitrol om grote systeem-\\wijzigingen te beheren en de risico's te minimaliseren. Als laatste is \\geautomatiseerde schaalvergroting belangrijk zodat men de groei van het systeem kan ondersteunen zonder handmatige interventie.
-
-In het bijzonder, wanneer we kijken naar een back-end die gebruikmaakt van OpenAPI, is het cruciaal dat de API grondig wordt getest. Het gebruik van Unit Tests is een manier om ervoor te zorgen dat de API correct en zoals verwacht functioneert. Deze tests beoordelen individuele componenten van de API om ervoor te zorgen dat ze correct werken binnen de context van het geheel.
-Binnen de scope van deze bachelorproef wordt er specifiek gekeken naar de Swift OpenAPI Generator. Het is van essentieel belang om te testen of de code die door deze generator wordt \\geproduceerd altijd correct is. Dit gaat verder dan alleen het functioneren van de code - het gaat om het verifiëren dat de code doet wat het hoort te doen in de \\context van het bredere systeem en de verwachtingen van de gebruiker. Een \\methode om dit te doen is door middel van contracttests. Deze tests controleren of de API zich niet onverwacht wijzigt. Dit omvat het controleren of de paden nog steeds geldig zijn, of de antwoorden consistent zijn, of de verwachte request bodies onveranderd blijven, enzovoort. Het doel van deze tests is om ervoor te zorgen dat de API zich gedraagt zoals afgesproken, wat helpt om de stabiliteit van het systeem als geheel te behouden. 
-
-\section{The swift openAPI generator}
-De Swift OpenAPI Generator is een Swift plugin die code kan genereren voor het \\uitvoeren van API-oproepen of het implementeren van API-servers. Deze code wordt gegenereerd op basis van OpenAPI-documenten, waardoor Swift-ontwikkelaars snel en efficiënt clientcode kunnen genereren voor het gebruik van RESTful API's.
-
-Met de release van versie 1.0 is de Swift OpenAPI Generator, een open-source Swift package plugin voor het genereren van code voor HTTP-endpoints, nu stabiel. Deze nieuwe versie introduceert functies zoals AsyncSequence voor JSON event streams en grote payloads, ondersteuning voor type-safe algemene contenttypes en betere ontkoppeling van gegenereerde code. De Swift OpenAPI Generator 1.0 is \\compatibel met OpenAPI 3.0 en 3.1 specificaties, waardoor het een waardevol hulpmiddel is voor ontwikkelaars die werken met deze specificaties \autocite{Simone2024}. 
-
+\section{The \textit{Swift OpenAPI Generator}}
+De \textit{Swift OpenAPI Generator} is een Swift plugin die code kan genereren voor het \\uitvoeren van API-oproepen of het implementeren van API-servers. Deze code wordt gegenereerd op basis van OpenAPI-documenten, waardoor Swift-ontwikkelaars snel en efficiënt \textit{client}code kunnen genereren voor het gebruik van RESTful API's.
+ \\  \\
+Met de release van versie 1.0 is de \textit{Swift OpenAPI Generator}, een open-source \textit{Swift package plugin} voor het genereren van code voor HTTP-\textit{endpoints}, nu stabiel. Deze nieuwe versie introduceert functies zoals \textit{AsyncSequence} voor JSON \textit{event streams} en grote \textit{payloads}, ondersteuning voor type-safe algemene contenttypes en betere ontkoppeling van gegenereerde code. De \textit{Swift OpenAPI Generator} 1.0 is \\compatibel met OpenAPI 3.0 en 3.1 specificaties, waardoor het een waardevol hulpmiddel is voor ontwikkelaars die werken met deze specificaties \autocite{Simone2024}. 
+ \\  \\
 Het OpenAPI-document is een open standaard voor het definiëren van HTTP API's, meestal gedocumenteerd in YAML of JSON. OpenAPI-documenten zijn een \\essentieel hulpmiddel om consistentie en kwaliteit te waarborgen tijdens de \\ontwikkeling, omdat ze verschillende doeleinden dienen. De OpenAPI-documenten worden opgesteld volgens de OpenAPI-specificaties (OAS) en deze specificaties zorgen voor duidelijke, leesbare beschrijvingen van HTTP API's voor zowel mensen als machines, waardoor het mogelijk is een service te begrijpen zonder dat er veel kennis nodig is om met de service te communiceren \autocite{Miller2020}.
+ \\  \\
+OpenAPI is een breed erkende industriestandaard die conventies en best \\\textit{practices} biedt voor het werken met API's. Het is de standaard die we gebruiken om onze eigen REST API te beschrijven. OpenAPI stelt je in staat om je API-service te documenteren in zowel YAML als JSON, beide machine leesbare formaten. Dit betekent dat je gebruik kunt maken van een breed scala aan tools, zoals die voor testgeneratie, \textit{runtime}-validatie, interoperabiliteit en in dit geval, codegeneratie \\\autocite{Simone2024}. 
 
-OpenAPI is een breed erkende industriestandaard die conventies en best \\practices biedt voor het werken met API's. Het is de standaard die we gebruiken om onze eigen REST API te beschrijven. OpenAPI stelt je in staat om je API-service te documenteren in zowel YAML als JSON, beide machineleesbare formaten. Dit betekent dat je gebruik kunt maken van een breed scala aan tools, zoals die voor testgeneratie, runtime-validatie, interoperabiliteit en in dit geval, codegeneratie \\\autocite{Simone2024}. 
+\section{Gebruik van The \textit{Swift OpenAPI Generator}}
 
-\section{Gebruik van The swift openAPI generator}
-
-Aan de serverkant begint het proces met het maken van een openapi.yaml waarin de API's worden gespecificeerd die moeten worden opgenomen in de server-\\applicatie. Er wordt ook een configuratiebestand, openapi-generator-config.yaml, aan het project toegevoegd. Dit bestand instrueert de Swift OpenAPI Generator-tool over het genereren van de server-side code. Hiernaast moet ook \\dependencies worden toegevoegd aan het project, namelijk het kernpakket `swift-openapi-generator` dat Swift-code genereert op basis van de OpenAPI-specificatie, `swift-openapi-runtime` dat runtime-bibliotheken biedt voor de gegenereerde code, ` Swift-openapi-vapor` dat de OpenAPI Generator integreert met het Vapor-webframeswork dat wordt gebruikt om de server te bouwen, en `vapor` dat het Vapor-webframework zelf is.
+Aan de serverkant begint het proces met het maken van een openapi.yaml waarin de API's worden gespecificeerd die moeten worden opgenomen in de server-\\applicatie. Er wordt ook een configuratiebestand, openapi-generator-config.yaml, aan het project toegevoegd. Dit bestand instrueert de \textit{Swift OpenAPI Generator}-tool over het genereren van de server-side code. Hiernaast moet ook \\\textit{dependencies} worden toegevoegd aan het project, namelijk het kernpakket `\textit{swift-openapi-generator}` dat Swift-code genereert op basis van de OpenAPI-specificatie, `\textit{swift-openapi-runtime}` dat \textit{runtime}-bibliotheken biedt voor de gegenereerde code, `\textit{swift-openapi-vapor}` dat de OpenAPI Generator integreert met het \textit{Vapor-webframework} dat wordt gebruikt om de server te bouwen, en `vapor` dat het \textit{Vapor-webframework} zelf is.
 
 \begin{lstlisting}[caption=openapi.yml file]
     openapi: '3.0.3'
@@ -233,7 +255,7 @@ Aan de serverkant begint het proces met het maken van een openapi.yaml waarin de
      - client
 \end{lstlisting}
 
-Zodra de configuratie en dependencies zijn toegevoegd, wordt de Swift OpenAPI Generator-tool gebruikt om de server-side code te genereren op basis van de OpenAPI-specificatie. De gegenereerde code kan vervolgens worden gebruikt om een \\ \textit{handler} voor de API te definiëren. Deze \textit{handler} is een stukje code dat de logica implementeert voor het afhandelen van API-verzoeken en -antwoorden. 
+Zodra de configuratie en \textit{dependencies} zijn toegevoegd, wordt de \textit{Swift OpenAPI Generator}-tool gebruikt om de server-side code te genereren op basis van de OpenAPI-specificatie. De gegenereerde code kan vervolgens worden gebruikt om een \\ \textit{handler} voor de API te definiëren. Deze \textit{handler} is een stukje code dat de logica implementeert voor het afhandelen van API-verzoeken en -antwoorden. 
 
 \begin{lstlisting}[caption=Using generated API Server Stubs]
 import OpenAPIRuntime
@@ -268,9 +290,9 @@ try handler.registerHandlers(on: transport)
 try app.run()
 \end{lstlisting}
 
-Aan de clientzijde lijkt het installatieproces enigszins op de installatie aan de serverzijde. Dit omvat het kopiëren van het OpenAPI-document naar het clientproject en het mogelijk wijzigen ervan om de lokale serverinformatie op te nemen. Er wordt ook een configuratiebestand, openapi-generator-config.yaml, gemaakt om te \\specificeren hoe de OpenAPI Generator-tool zich moet gedragen bij het genereren van de clientcode.
+Aan de \textit{client}zijde lijkt het installatieproces enigszins op de installatie aan de serverzijde. Dit omvat het kopiëren van het OpenAPI-document naar het \textit{clientproject} en het mogelijk wijzigen ervan om de lokale serverinformatie op te nemen. Er wordt ook een configuratiebestand, openapi-generator-config.yaml, gemaakt om te \\specificeren hoe de \textit{OpenAPI Generator-tool} zich moet gedragen bij het genereren van de \textit{client}code.
 
-Het clientproject vereist ook dependencies van de noodzakelijke Swift-pakketten (in dit geval `swift-openapi-generator`, `swift-openapi-runtime` en `swift-openapi-urlsession`). Zodra de configuratie en afhankelijkheden zijn ingesteld, wordt de OpenAPI Generator-tool gebruikt om de client-side code te genereren op basis van de OpenAPI-specificatie. Vervolgens kunt u de gegenereerde clientcode \\gebruiken om verzoeken in te dienen en het antwoord te verwerken \autocite{2024a}.
+Het \textit{clientproject} vereist ook \textit{dependencies} van de noodzakelijke \textit{Swift}-pakketten (in dit geval `\textit{-openapi-generator}`, `\textit{swift-openapi-runtime}` en `\textit{swift-openapi-urlsession}`). Zodra de configuratie en afhankelijkheden zijn ingesteld, wordt de OpenAPI Generator-tool gebruikt om de \textit{client-side} code te genereren op basis van de OpenAPI-specificatie. Vervolgens kunt u de gegenereerde \textit{client}code \\gebruiken om verzoeken in te dienen en het antwoord te verwerken \autocite{2024a}.
 \begin{lstlisting}[caption=Using generated API Server Stubs]
 import OpenAPIRuntime
 import OpenAPIURLSession
